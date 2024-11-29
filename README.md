@@ -1,15 +1,18 @@
 # YouTube-Watch-Habits-Analysis-and-Personalized-Recommendations
 
 Overview
+
 This project analyzes your YouTube watch habits with a focus on time of day and content preferences. It identifies patterns in your viewing history, such as frequently watched videos or channels during specific hours, and provides personalized recommendations for channels and videos.
 
 For example, if you tend to watch sitcoms like Yalan Dünya or Avrupa Yakası before bed, the system detects this habit and recommends similar videos or channels for your nighttime routine.
 
 Features
+
 Time-Based Analysis:
 
 Detect when you watch the most (morning, afternoon, evening, or night).
 Visualize watch activity with heatmaps and bar charts.
+
 Content Categorization:
 
 Identify the types of videos you watch during different time periods (e.g., educational in the morning, relaxing shows at night).
@@ -18,10 +21,12 @@ Personalized Recommendations:
 
 Suggest channels and videos tailored to your viewing habits.
 Generate time-specific playlists (e.g., morning motivation, nighttime relaxation).
+
 Channel Insights:
 
 Highlight your most-watched channels.
 Recommend similar channels or underexplored creators in your preferred genres.
+
 Dynamic Playlists:
 
 Create curated playlists based on your viewing patterns and preferences.
