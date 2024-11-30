@@ -1,5 +1,11 @@
 # YouTube-Watch-Habits-Analysis-and-Personalized-Recommendations
 
+# Research Questions
+
+How do viewing habits differ across various times of the day, and what content categories dominate these periods?
+
+How can time-based analysis of YouTube watch history be used to generate personalized video and channel recommendations?
+
 # Research Aim
 The primary goal of this project is to understand your YouTube watch habits by analyzing the watch history extracted from Google Takeout. 
 
