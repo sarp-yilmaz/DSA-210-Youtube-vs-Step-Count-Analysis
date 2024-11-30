@@ -1,73 +1,93 @@
 # YouTube-Watch-Habits-Analysis-and-Personalized-Recommendations
 
-Overview
+# Research Aim
+The primary goal of this project is to understand your YouTube watch habits by analyzing the watch history extracted from Google Takeout. 
 
-This project analyzes your YouTube watch habits with a focus on time of day and content preferences. It identifies patterns in your viewing history, such as frequently watched videos or channels during specific hours, and provides personalized recommendations for channels and videos.
+This includes:
 
-For example, if you tend to watch sitcoms like Yalan Dünya or Avrupa Yakası before bed, the system detects this habit and recommends similar videos or channels for your nighttime routine.
+Identifying time-based viewing patterns.
+Categorizing content by genres, channels, or themes.
+Providing personalized recommendations based on your habits and preferences.
+Visualizing the results to make insights easily interpretable.
 
-Features
+# Data Source
 
-Time-Based Analysis:
+Google Takeout: Export your YouTube watch history as JSON files.
+Path in the Takeout archive: YouTube and YouTube Music/History/watch-history.json.
 
-Detect when you watch the most (morning, afternoon, evening, or night).
-Visualize watch activity with heatmaps and bar charts.
+Data fields include:
 
-Content Categorization:
+title: Video title.
+subtitles: Channel name.
+time: Timestamp of when the video was watched.
+details: Metadata about the device or context (if available).
 
-Identify the types of videos you watch during different time periods (e.g., educational in the morning, relaxing shows at night).
-Categorize videos by genres, channels, or themes.
-Personalized Recommendations:
+# Steps to Execute the Project
+1. Data Collection
+   
+   
+Export your YouTube data from Google Takeout.
+Locate the file watch-history.json in the archive.
+Load the data into a Python script for preprocessing.
 
-Suggest channels and videos tailored to your viewing habits.
-Generate time-specific playlists (e.g., morning motivation, nighttime relaxation).
+2. Data Preprocessing
+   
+Clean the Data:
 
-Channel Insights:
+Remove duplicate entries.
+Parse timestamps into usable formats (e.g., date, hour, weekday).
+Extract Key Features:
 
-Highlight your most-watched channels.
-Recommend similar channels or underexplored creators in your preferred genres.
+Video Title: Identify unique or recurring titles.
+Channel Name: Analyze the most-watched channels.
+Timestamp: Group by time of day (morning, afternoon, evening, night).
 
+3. Explanatory and Exploratory Data Analysis
+
+
+Explanatory Goals:
+
+Understand Time-Based Viewing Habits:
+Analyze the distribution of watch times across periods (morning, afternoon, evening, night).
+Identify Content Preferences:
+Find your most-watched channels and content types.
+Detect Patterns in Content Themes:
+Categorize videos by themes (e.g., comedy, educational) to understand preferences.
+
+Exploratory Questions:
+
+What times of the day do you watch the most videos?
+Which channels dominate your watch history?
+Are there trends in the types of videos watched during specific periods?
+
+4. Visualizations
+   
+Visualization Goals:
+
+Heatmap of Viewing Activity:
+Display hours of the day vs. number of videos watched.
+Bar Chart of Most-Watched Channels:
+Highlight your top 10 most-watched channels.
+Pie Chart of Content Themes:
+Show the percentage distribution of content themes (if categories are defined).
+Time Series Analysis:
+Analyze weekly or monthly viewing trends.
+
+5. Recommendations
+   
+How Recommendations Work:
+
+Pattern Matching:
+
+Identify recurring shows, themes, or channels.
+Example: If you watch sitcoms like Yalan Dünya at night, prioritize comedy recommendations for nighttime.
+Fetch Related Content:
+
+Use the YouTube Data API or pre-built tags to suggest similar videos.
+Example: Recommend other Turkish sitcoms or user-created playlists.
 Dynamic Playlists:
 
-Create curated playlists based on your viewing patterns and preferences.
-How the Project Works
-1. Data Collection
-Fetch watch history using the YouTube Data API, including:
-Video titles.
-Timestamps of when videos were watched.
-Channels and categories.
-2. Data Analysis
-Extract patterns from watch history:
-Time Analysis: Group videos by the hour and day of the week.
-Content Categorization: Use video metadata to identify themes or genres.
-Identify recurring habits, such as:
-Watching sitcoms before bed.
-Viewing educational content during the day.
-3. Recommendations
-Fetch similar videos using the YouTube API:
-Related videos based on titles, tags, and categories.
-Channels that produce similar content to your favorites.
-Generate playlists tailored to specific times or preferences.
-4. Visualization
-Heatmaps for hourly watch activity.
-Bar charts for content categories by time of day.
-Pie charts showing most-watched channels and genres.
-Technical Details
-APIs Used
-YouTube Data API:
-GET /videos: Fetch video details and metadata.
-GET /playlistItems: Retrieve watch history.
-GET /search: Find related videos.
-Optional APIs:
-TMDb API (if extending to movies/TV shows).
-OpenWeatherMap API (if integrating weather).
-Tools and Libraries
-Data Handling:
-Pandas: Data analysis and grouping.
-NumPy: Time-based calculations.
-Visualization:
-Matplotlib: Heatmaps and bar charts.
-Plotly: Interactive visualizations.
-Recommendation System:
-scikit-learn: Clustering for similar videos.
-google-api-python-client: YouTube API integration.
+Curate playlists based on your preferences:
+
+Morning Playlist: Educational or motivational videos.
+Nighttime Playlist: Relaxing or lighthearted content.
