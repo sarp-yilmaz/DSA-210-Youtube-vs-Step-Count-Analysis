@@ -1,99 +1,148 @@
-# YouTube-Watch-Habits-Analysis-and-Personalized-Recommendations
+# Analysis of the Relationship Between YouTube Usage and Daily Step Counts
 
-# Research Questions
+This repository contains an in-depth analysis of the relationship between daily YouTube usage and daily step counts, supported by data visualization, hypothesis testing, and statistical analysis.
 
-How do viewing habits differ across various times of the day, and what content categories dominate these periods?
+---
 
-How can time-based analysis of YouTube watch history be used to generate personalized video and channel recommendations?
+## Overview
+The goal of this project is to determine whether there is a significant relationship between daily YouTube usage (number of videos watched) and physical activity (measured by step counts). The analysis uses statistical methods, correlation analysis, and hypothesis testing to arrive at a conclusion.
 
-# Research Aim
-The primary goal of this project is to understand your YouTube watch habits by analyzing the watch history extracted from Google Takeout. 
+---
 
-This includes:
+## Dataset
 
-Identifying time-based viewing patterns.
-Categorizing content by genres, channels, or themes.
-Providing personalized recommendations based on your habits and preferences.
-Visualizing the results to make insights easily interpretable.
+### 1. YouTube Watch History
+- **Source**: Exported YouTube watch history file.
+- **Processed Variables**:
+  - `Timestamp`: Date and time of video watched.
+  - `Day`: Day of the week.
+  - `Hour`: Hour of the day.
+  - Aggregated metrics: Daily and hourly counts of videos watched.
 
-# Data Source
+### 2. Step Count Data
+- **Source**: Health app XML export.
+- **Processed Variables**:
+  - `date`: Date of recorded steps.
+  - `steps`: Total steps recorded per day.
+  - `Day`: Day of the week.
+  - Aggregated metrics: Daily step counts.
 
-Google Takeout: Export your YouTube watch history as JSON files.
-Path in the Takeout archive: YouTube and YouTube Music/History/watch-history.json.
+---
 
-Data fields include:
+## Methods
 
-title: Video title.
-subtitles: Channel name.
-time: Timestamp of when the video was watched.
-details: Metadata about the device or context (if available).
+### 1. Data Cleaning and Preprocessing
+- Converted timestamps to consistent date-time formats.
+- Aggregated data by day and hour for both datasets.
+- Removed outliers based on statistical thresholds.
 
-# Steps to Execute the Project
-1. Data Collection
-   
-   
-Export your YouTube data from Google Takeout.
-Locate the file watch-history.json in the archive.
-Load the data into a Python script for preprocessing.
+### 2. Visualizations
+The project includes the following visualizations:
+- **Daily Trends**:
+  - Line plots for daily YouTube views and step counts.
+- **Hourly Trends**:
+  - Bar plots for hourly YouTube views.
+  - Side-by-side line plots comparing hourly YouTube views and steps.
+- **Correlation Heatmaps**:
+  - Correlation between daily YouTube views and step counts.
+  - Correlation between hourly data.
+- **Scatter Plots**:
+  - Scatter plot with a fitted regression line for daily YouTube views vs. step counts.
 
-2. Data Preprocessing
-   
-Clean the Data:
+### 3. Statistical Analysis
+- **Correlation Analysis**:
+  - Used Pearson correlation coefficient to measure the linear relationship between variables.
+- **Hypothesis Testing**:
+  - Null Hypothesis (ℎ₀): There is no significant relationship between daily YouTube usage and step counts.
+  - Alternative Hypothesis (ℎ₁): There is a significant relationship between daily YouTube usage and step counts.
+  - Significance Level (α): 0.05.
+  - Test Results:
+    - p-value: Computed from the correlation test.
+    - Conclusion: Fail to reject the null hypothesis as p > α.
 
-Remove duplicate entries.
-Parse timestamps into usable formats (e.g., date, hour, weekday).
-Extract Key Features:
+---
 
-Video Title: Identify unique or recurring titles.
-Channel Name: Analyze the most-watched channels.
-Timestamp: Group by time of day (morning, afternoon, evening, night).
+## Results
 
-3. Explanatory and Exploratory Data Analysis
+### Key Findings:
+1. **Correlation Coefficient**:
+   - Daily YouTube views and step counts showed a weak negative correlation (-0.22).
+   - Hourly YouTube views and step counts showed negligible correlation (0.05).
+2. **Hypothesis Test**:
+   - p-value: 0.1653 for daily data, indicating no significant relationship.
+   - The null hypothesis (ℎ₀) was not rejected.
+3. **Outliers**:
+   - Days with extreme YouTube views or step counts were identified and visualized separately.
 
+---
 
-Explanatory Goals:
+## Folder Structure
 
-Understand Time-Based Viewing Habits:
-Analyze the distribution of watch times across periods (morning, afternoon, evening, night).
-Identify Content Preferences:
-Find your most-watched channels and content types.
-Detect Patterns in Content Themes:
-Categorize videos by themes (e.g., comedy, educational) to understand preferences.
+```
+root
+├── data
+│   └── youtube_watch_history.html
+│   └── step_count_data.xml
+├── notebooks
+│   └── analysis.ipynb
+├── visualizations
+│   └── plots
+├── presentation
+│   └── hypothesis_analysis.pptx
+└── README.md
+```
 
-Exploratory Questions:
+---
 
-What times of the day do you watch the most videos?
-Which channels dominate your watch history?
-Are there trends in the types of videos watched during specific periods?
+## Instructions
 
-4. Visualizations
-   
-Visualization Goals:
+### Prerequisites
+- Python 3.8+
+- Required libraries:
+  - pandas
+  - matplotlib
+  - seaborn
+  - scipy
+  - numpy
+  - python-pptx (for presentation generation)
 
-Heatmap of Viewing Activity:
-Display hours of the day vs. number of videos watched.
-Bar Chart of Most-Watched Channels:
-Highlight your top 10 most-watched channels.
-Pie Chart of Content Themes:
-Show the percentage distribution of content themes (if categories are defined).
-Time Series Analysis:
-Analyze weekly or monthly viewing trends.
+### How to Run
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Execute the Jupyter notebook:
+   ```bash
+   jupyter notebook notebooks/analysis.ipynb
+   ```
+4. View visualizations in the `visualizations/plots` folder.
+5. Open the presentation in `presentation/hypothesis_analysis.pptx`.
 
-5. Recommendations
-   
-How Recommendations Work:
+---
 
-Pattern Matching:
+## Conclusion
+While the analysis shows some patterns in YouTube usage and step counts, no significant statistical relationship was found between the two variables. This indicates that the two behaviors are likely independent under the observed conditions.
 
-Identify recurring shows, themes, or channels.
-Example: If you watch sitcoms like Yalan Dünya at night, prioritize comedy recommendations for nighttime.
-Fetch Related Content:
+---
 
-Use the YouTube Data API or pre-built tags to suggest similar videos.
-Example: Recommend other Turkish sitcoms or user-created playlists.
-Dynamic Playlists:
+## Future Work
+- Explore non-linear relationships.
+- Incorporate additional data, such as device usage patterns or other physical activity metrics.
+- Conduct analysis across different time periods for broader generalization.
 
-Curate playlists based on your preferences:
+---
 
-Morning Playlist: Educational or motivational videos.
-Nighttime Playlist: Relaxing or lighthearted content.
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+---
+
+## Acknowledgments
+- Data provided by YouTube and Health app exports.
+- Libraries used: `pandas`, `matplotlib`, `seaborn`, `scipy`, `numpy`, and `python-pptx`.
+
