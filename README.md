@@ -132,17 +132,8 @@ While the analysis shows some patterns in YouTube usage and step counts, no sign
 
 ## Future Work
 - Explore non-linear relationships.
-- Incorporate additional data, such as device usage patterns or other physical activity metrics.
+- Incorporate additional data, such as hourly step count.
 - Conduct analysis across different time periods for broader generalization.
 
 ---
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
----
-
-## Acknowledgments
-- Data provided by YouTube and Health app exports.
-- Libraries used: `pandas`, `matplotlib`, `seaborn`, `scipy`, `numpy`, and `python-pptx`.
 
