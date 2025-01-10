@@ -91,7 +91,10 @@ root
 │   └── hypothesis_analysis.pptx
 └── README.md
 ```
-- access data: https://github.com/sarp-yilmaz/DSA-210-Youtube-vs-Step-Count-Analysis/tree/main/data%20visualization
+- access data: https://github.com/sarp-yilmaz/DSA-210-Youtube-vs-Step-Count-Analysis/tree/main/data
+- access visualizations: https://github.com/sarp-yilmaz/DSA-210-Youtube-vs-Step-Count-Analysis/tree/main/data%20visualization
+- access the code: https://github.com/sarp-yilmaz/DSA-210-Youtube-vs-Step-Count-Analysis/blob/main/dsa%20210%20youtube%20vs%20step%20count%20analysis.ipynb
+- access presentation: https://github.com/sarp-yilmaz/DSA-210-Youtube-vs-Step-Count-Analysis/blob/main/youtube%20vs%20step%20count%20analysis.pptx
 ---
 
 ## Instructions
